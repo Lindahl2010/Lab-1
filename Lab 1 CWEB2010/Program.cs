@@ -33,13 +33,35 @@ namespace Lab_1_CWEB2010
                         WriteLine("Invalid option, please enter a vaue that is between A-D.");
                         userResponse = ReadLine();
                     }
-                    
+                    userAnswer[x] = userResponse;
+                    if (userAnswer[x] == answerKey[x])
+                    {
+                        correctHolder += 1;
+                    }
+                    else
+                    {
+                        incorrectHolder += 1;
+                    }
+                    questionHolder[x] = questionHolder[x] + incorrectHolder;
                 }
-                
-                
-                    
-                
+                if(correctHolder >= PASS_SCORE)
+                {
+                    WriteLine("You passed with a score of", correctHolder, " out of ", questions.Length);
+                }
+                else
+                {
+                    WriteLine("Sorry, please take the exam again.");
+                }
+                WriteLine("Listed below are the questions you missed.");
+                for (int x = 0; x < questionHolder.Length; x++) 
+                {
+                    if (questionHolder[x] > 0)
+                    {
+                        WriteLine(questions[x]);
+                    }
 
+                }
+                WriteLine("To enter another test, please press 1. To exit the program, press Enter.");
             }
         }
     }
