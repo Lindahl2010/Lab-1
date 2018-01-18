@@ -33,6 +33,7 @@ namespace Lab_1_CWEB2010
                 {
                     WriteLine("Question {0}", questions[x]);
                     userResponse = ReadLine();
+                    userResponse = userResponse.ToUpper();
                     //While loop in case user enters something other than a,b,c or d
                     while(userResponse != "A" && userResponse != "B" && userResponse != "C" && userResponse != "D")
                     {
