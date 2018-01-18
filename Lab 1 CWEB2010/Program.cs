@@ -16,15 +16,14 @@ namespace Lab_1_CWEB2010
             string[] answerKey = {"B", "D", "A", "A", "C", "A", "B", "A", "C", "D", "B", "C", "D", "A", "D", "C", "C", "B", "D", "A"};
             string[] userAnswer = new string[20];
             string userResponse;
-            //string[] questionHolder = new string[20];
             List<string> questionHolder = new List<string>();
             int PASS_SCORE = 15;
             int correctHolder, incorrectHolder;
             WriteLine("This is the Minnesota Driver's License Exam. This Exam is 20 questions and will give immediate feedback on whether you passed or failed.");
             WriteLine("To get started, Press 1 or enter any key to exit the program.");
-            //Input from user as the number 1 to start the program
+            //Input from user as the number 1 to start the program, any other key entered will just exit the program
             string start = ReadLine();
-            while (start == "1")  
+            if (start == "1")  
             {
                 correctHolder = 0;
                 incorrectHolder = 0;
@@ -39,6 +38,7 @@ namespace Lab_1_CWEB2010
                     {
                         WriteLine("Invalid option, please enter a vaue that is between A-D.");
                         userResponse = ReadLine();
+                        userResponse = userResponse.ToUpper();
                     }
                     //User answers are put into an array
                     userAnswer[x] += userResponse;
@@ -48,7 +48,6 @@ namespace Lab_1_CWEB2010
                     }
                     else
                     {
-                        //questionHolder[x] += questions[x];
                         questionHolder.Add(questions[x]);
                         incorrectHolder += 1;
                     }
@@ -77,8 +76,7 @@ namespace Lab_1_CWEB2010
                 }
                 //Prompt to press enter to exit the program
                 WriteLine("\nTo exit the program, press Enter.");
-               /* while (ReadKey().Key != ConsoleKey.Enter) 
-                { }*/
+                ReadLine();
             }
         }
     }
